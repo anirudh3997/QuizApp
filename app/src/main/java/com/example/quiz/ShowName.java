@@ -1,7 +1,6 @@
 package com.example.quiz;
 
 import android.content.Intent;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,17 +12,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.Iterator;
-
 public class ShowName extends AppCompatActivity {
     private RequestQueue queue;
     private String url = "http://28663af4.ngrok.io/api/questions";
-    JSONArray pass;
+    String pass="";
+    StringBuilder s = new StringBuilder();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,22 +43,18 @@ public class ShowName extends AppCompatActivity {
                 url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-                try {
-                    for ( int i = 0; i < response.length(); i++) {
-                        JSONObject participant = response.getJSONObject(i);
-                        Iterator x = participant.keys();
-                        pass = new JSONArray();
-                        while (x.hasNext())
-                        {
-                            String key = (String) x.next();
-                            pass.put(participant.get(key));
 
-                        }Log.e("pass value", String.valueOf(pass));
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    Log.e("onResponse: ", e.toString());
-                }
+                s.append(response);
+
+                Log.e("pass string", String.valueOf(s));
+
+
+                Log.e("pass value", String.valueOf(s));
+                Intent showname = new Intent(ShowName.this, QwithImage.class);
+                Bundle b = new Bundle();
+                b.putString("Array",s.toString());
+                showname.putExtras(b);
+                startActivity(showname);
             }
         }, new Response.ErrorListener() {
 
@@ -78,10 +69,6 @@ public class ShowName extends AppCompatActivity {
         // Add the request to the RequestQueue.
         queue.add(objectRequest);
 
-        Log.e("pass value", String.valueOf(pass));
-        Intent showname = new Intent(ShowName.this, QwithImage.class);
-        showname.putExtra("participant", String.valueOf(pass));
-        startActivity(showname);
 
     }
 
