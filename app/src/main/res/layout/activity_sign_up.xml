@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignIn"
+    tools:context=".SignUp"
     android:background="@drawable/quizbg">
 
     <EditText
-        android:id="@+id/etNameSignIn"
+        android:id="@+id/etNameSignUp"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginStart="16dp"
@@ -16,22 +16,23 @@
         android:layout_marginTop="100dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:backgroundTint="@android:color/white"
         android:ems="10"
-        android:hint="Your Name"
+        android:hint="Name"
+        android:textColorHint="#8B8989"
         android:inputType="textPersonName"
         android:outlineAmbientShadowColor="@android:color/white"
         android:outlineSpotShadowColor="@android:color/white"
         android:padding="10dp"
         android:textColor="@android:color/white"
-        android:textColorHint="#8B8989"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="#FFFFFF"
+        android:backgroundTint="@android:color/white"/>
 
     <EditText
-        android:id="@+id/etMailSignIn"
+        android:id="@+id/etMailSignUp"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginStart="16dp"
@@ -50,12 +51,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNameSignIn"
-        tools:background="#8B8989"
-        android:backgroundTint="@android:color/white"/>
+        app:layout_constraintTop_toBottomOf="@+id/etNameSignUp"
+        tools:background="#FFFFFF"
+        android:backgroundTint="@android:color/white" />
 
     <Button
-        android:id="@+id/btnSignIn"
+        android:id="@+id/btnSignUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -64,15 +65,15 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="32dp"
-        android:background="#979797"
-        android:text="Sign In"
+        android:background="#87DC16"
+        android:text="Sign Up"
         android:textColor="@android:color/white"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etMailSignIn"
+        app:layout_constraintTop_toBottomOf="@+id/etMailSignUp"
         app:layout_constraintVertical_bias="1.0"
-        android:onClick="Validate"/>
+        android:onClick="onRegister"/>
 </android.support.constraint.ConstraintLayout>
