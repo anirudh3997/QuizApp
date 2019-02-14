@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Quiz</string>
+    <string name="first_activity_textview">Are you a new user?</string>
+    <string name="sign_up">Yes</string>
+    <string name="sign_in">No</string>
 </resources>
