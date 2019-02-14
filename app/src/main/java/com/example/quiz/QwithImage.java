@@ -5,10 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 public class QwithImage extends AppCompatActivity {
 
-    StringBuilder a = new StringBuilder();
+    JSONArray jsnobject;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +21,19 @@ public class QwithImage extends AppCompatActivity {
         Intent data = getIntent();
         Bundle b = getIntent().getExtras();
         String Array =b.getString("Array");
-        Log.e("hi wtf", Array);
+        try {
+                jsnobject = new JSONArray(Array);
+
+                JSONObject jsonObj = jsnobject.getJSONObject(0);
+                Log.e("hi wtf", String.valueOf(jsonObj));
+               // System.out.println(jsonObj);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+
     }
 
 }
