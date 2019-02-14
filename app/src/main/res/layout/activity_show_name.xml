@@ -41,7 +41,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="208dp"
         android:background="@drawable/button"
-        android:corner="2dp"
         android:text="Start Quiz"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
