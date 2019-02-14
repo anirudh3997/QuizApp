@@ -22,7 +22,7 @@ public class SignUp extends AppCompatActivity {
     private RequestQueue requestQueue;
 
     EditText name,mail;
-    String URL = "http://def162c0.ngrok.io/api/customer";
+    String URL = "http://28663af4.ngrok.io/api/insertparticipant";
 
 
     @Override
@@ -54,7 +54,7 @@ public class SignUp extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("Name", name.getText().toString());
-                params.put("Mobile", mail.getText().toString());
+                params.put("Email", mail.getText().toString());
 
                 return params;
             }

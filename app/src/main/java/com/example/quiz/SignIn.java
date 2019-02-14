@@ -62,8 +62,6 @@ public class SignIn extends AppCompatActivity {
                             Goto.putExtra("name",user.getString("Name"));
                             setResult(RESULT_OK, Goto);
                             startActivity(Goto);
-                            Toast.makeText(SignIn.this,"Welcome "+user.getString("Name"),Toast.LENGTH_LONG).show();
-
                         }
                         if(i >= (response.length())){
                             Toast.makeText(SignIn.this,"Sorry Wrong Name or Email. Please Try Again",Toast.LENGTH_LONG).show();
