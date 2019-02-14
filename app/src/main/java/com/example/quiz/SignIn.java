@@ -22,7 +22,7 @@ import org.json.JSONObject;
 public class SignIn extends AppCompatActivity {
 
     private RequestQueue queue;
-    private String url = "http://28663af4.ngrok.io/api/customer";
+    private String url = "http://28663af4.ngrok.io/api/getparticipants";
     EditText Name,EMail;
     int i;
     //StringBuilder ApiName=new StringBuilder();
@@ -32,8 +32,8 @@ public class SignIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-        Name=(EditText)findViewById(R.id.etName);
-        EMail=(EditText)findViewById(R.id.etMail);
+        Name=(EditText)findViewById(R.id.etNameSignIn);
+        EMail=(EditText)findViewById(R.id.etMailSignIn);
     }
 
     public void Validate(View view){
@@ -52,21 +52,21 @@ public class SignIn extends AppCompatActivity {
                         Log.e("Getfromapi",user.toString());
                         Log.e("GetfromapiName",user.getString("Name"));
                         Log.d("Api",Name.getText().toString());
+                        Log.d("Api",user.getString("Email"));
 
                         Log.d("Count",String.valueOf(response.length()));
                         if(Name.getText().toString().equals(user.getString("Name")) &&
-                                EMail.getText().toString().equals(user.getString("Mobile"))){
-                            Intent GotoOrder = new Intent(SignIn.this, ShowName.class);
-                            Log.i("executed1","finished");
-                            Log.i("value", String.valueOf(user.getInt("Mobile")));
-                            GotoOrder.putExtra("Customer",String.valueOf(user.getInt("Mobile")));
-                            setResult(RESULT_OK, GotoOrder);
-                            startActivity(GotoOrder);
+                                EMail.getText().toString().equals(user.getString("Email"))){
+                            Intent Goto = new Intent(SignIn.this, ShowName.class);
+                           // Log.i("executed1","finished");
+                            Goto.putExtra("name",user.getString("Name"));
+                            setResult(RESULT_OK, Goto);
+                            startActivity(Goto);
                             Toast.makeText(SignIn.this,"Welcome "+user.getString("Name"),Toast.LENGTH_LONG).show();
 
                         }
                         if(i >= (response.length())){
-                            Toast.makeText(SignIn.this,"Sorry Wrong UserId or Password Please Try Again",Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignIn.this,"Sorry Wrong Name or Email. Please Try Again",Toast.LENGTH_LONG).show();
                         }
                     }
                 } catch (JSONException e) {

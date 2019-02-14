@@ -8,7 +8,7 @@
     android:background="@drawable/quizbg">
 
     <EditText
-        android:id="@+id/etName"
+        android:id="@+id/etNameSignIn"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginStart="16dp"
@@ -16,6 +16,7 @@
         android:layout_marginTop="100dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:backgroundTint="@android:color/white"
         android:ems="10"
         android:hint="Your Name"
         android:inputType="textPersonName"
@@ -23,15 +24,14 @@
         android:outlineSpotShadowColor="@android:color/white"
         android:padding="10dp"
         android:textColor="@android:color/white"
+        android:textColorHint="#8B8989"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:background="#FFFFFF"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etMail"
+        android:id="@+id/etMailSignIn"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginStart="16dp"
@@ -41,6 +41,7 @@
         android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="E-mail"
+        android:textColorHint="#8B8989"
         android:inputType="textEmailAddress"
         android:outlineAmbientShadowColor="@android:color/white"
         android:outlineSpotShadowColor="@android:color/white"
@@ -49,8 +50,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etName"
-        tools:background="#FFFFFF" />
+        app:layout_constraintTop_toBottomOf="@+id/etNameSignIn"
+        tools:background="#8B8989"
+        android:backgroundTint="@android:color/white"/>
 
     <Button
         android:id="@+id/btnSignIn"
@@ -70,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etMail"
+        app:layout_constraintTop_toBottomOf="@+id/etMailSignIn"
         app:layout_constraintVertical_bias="1.0"
         android:onClick="Validate"/>
 </android.support.constraint.ConstraintLayout>

@@ -21,7 +21,7 @@ import java.util.Map;
 public class SignUp extends AppCompatActivity {
     private RequestQueue requestQueue;
 
-    EditText name,mobile;
+    EditText name,mail;
     String URL = "http://def162c0.ngrok.io/api/customer";
 
 
@@ -29,8 +29,8 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        name = (EditText) findViewById(R.id.etName);
-        mobile = (EditText) findViewById(R.id.etMobile);
+        name = (EditText) findViewById(R.id.etNameSignUp);
+        mail = (EditText) findViewById(R.id.etMailSignUp);
     }
 
     public void onRegister(View view) {
@@ -54,7 +54,7 @@ public class SignUp extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("Name", name.getText().toString());
-                params.put("Mobile", mobile.getText().toString());
+                params.put("Mobile", mail.getText().toString());
 
                 return params;
             }
