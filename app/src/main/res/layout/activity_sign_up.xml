@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignIn"
+    tools:context=".SignUp"
     android:background="@drawable/quizbg">
 
     <EditText
@@ -17,7 +17,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
-        android:hint="Your Name"
+        android:hint="Name"
         android:inputType="textPersonName"
         android:outlineAmbientShadowColor="@android:color/white"
         android:outlineSpotShadowColor="@android:color/white"
@@ -27,11 +27,10 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:background="#FFFFFF"
-        />
+        tools:background="#FFFFFF" />
 
     <EditText
-        android:id="@+id/etMail"
+        android:id="@+id/etMobile"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginStart="16dp"
@@ -53,7 +52,7 @@
         tools:background="#FFFFFF" />
 
     <Button
-        android:id="@+id/btnSignIn"
+        android:id="@+id/btnSignUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -62,15 +61,15 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="32dp"
-        android:background="#979797"
-        android:text="Sign In"
+        android:background="#87DC16"
+        android:text="Sign Up"
         android:textColor="@android:color/white"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etMail"
+        app:layout_constraintTop_toBottomOf="@+id/etMobile"
         app:layout_constraintVertical_bias="1.0"
-        android:onClick="Validate"/>
+        android:onClick="onRegister"/>
 </android.support.constraint.ConstraintLayout>
