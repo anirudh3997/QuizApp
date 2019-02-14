@@ -1,9 +1,11 @@
 package com.example.quiz;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -38,7 +40,12 @@ public class SignUp extends AppCompatActivity {
 
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignUp.this,"Success, Sign in now",Toast.LENGTH_SHORT).show();
+
+                Intent signin = new Intent(SignUp.this,SignIn.class);
+
+                startActivity(signin);
+
                 Log.d("Working",response);
 
             }
