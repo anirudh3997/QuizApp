@@ -3,4 +3,5 @@
     <string name="first_activity_textview">Are you a new user?</string>
     <string name="sign_up">Yes</string>
     <string name="sign_in">No</string>
+    <string name="pass"> </string>
 </resources>

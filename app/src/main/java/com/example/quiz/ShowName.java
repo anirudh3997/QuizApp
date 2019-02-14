@@ -17,10 +17,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
+
 public class ShowName extends AppCompatActivity {
     private RequestQueue queue;
     private String url = "http://28663af4.ngrok.io/api/questions";
-    JSONArray pass;
+    String pass="";
+    StringBuilder s = new StringBuilder();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,19 +49,18 @@ public class ShowName extends AppCompatActivity {
                 url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-                try {
-                    for ( int i = 0; i < response.length(); i++) {
-                        JSONObject participant = response.getJSONObject(i);
-                        Log.e("Getfromapi",participant.toString());
-                    }
-                    Log.e("response", String.valueOf((response)));
-                    pass=response;
+
+                s.append(response);
+
+                Log.e("pass string", String.valueOf(s));
 
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    Log.e("onResponse: ", e.toString());
-                }
+                Log.e("pass value", String.valueOf(s));
+                Intent showname = new Intent(ShowName.this, QwithImage.class);
+                Bundle b = new Bundle();
+                b.putString("Array",s.toString());
+                showname.putExtras(b);
+                startActivity(showname);
             }
         }, new Response.ErrorListener() {
 
@@ -72,10 +75,6 @@ public class ShowName extends AppCompatActivity {
         // Add the request to the RequestQueue.
         queue.add(objectRequest);
 
-        Log.e("pass value", String.valueOf(pass));
-        Intent showname = new Intent(ShowName.this, QwithImage.class);
-        showname.putExtra("participant", String.valueOf(pass));
-        startActivity(showname);
 
     }
 

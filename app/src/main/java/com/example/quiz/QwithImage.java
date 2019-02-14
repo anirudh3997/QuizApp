@@ -8,13 +8,16 @@ import android.util.Log;
 
 public class QwithImage extends AppCompatActivity {
 
+    StringBuilder a = new StringBuilder();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qwith_image);
-        Intent intent = getIntent();
-        String a = intent.getStringExtra("participant");
-       // Log.d("a value", a);
+        Log.d("hi", "working here");
+        Intent data = getIntent();
+        Bundle b = getIntent().getExtras();
+        String Array =b.getString("Array");
+        Log.e("hi wtf", Array);
     }
 
 }
