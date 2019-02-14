@@ -1,6 +1,7 @@
 package com.example.quiz;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Iterator;
 
 public class ShowName extends AppCompatActivity {
     private RequestQueue queue;
@@ -48,12 +51,15 @@ public class ShowName extends AppCompatActivity {
                 try {
                     for ( int i = 0; i < response.length(); i++) {
                         JSONObject participant = response.getJSONObject(i);
-                        Log.e("Getfromapi",participant.toString());
+                        Iterator x = participant.keys();
+                        pass = new JSONArray();
+                        while (x.hasNext())
+                        {
+                            String key = (String) x.next();
+                            pass.put(participant.get(key));
+
+                        }Log.e("pass value", String.valueOf(pass));
                     }
-                    Log.e("response", String.valueOf((response)));
-                    pass=response;
-
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Log.e("onResponse: ", e.toString());

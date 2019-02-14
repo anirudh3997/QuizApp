@@ -14,7 +14,7 @@ public class QwithImage extends AppCompatActivity {
         setContentView(R.layout.activity_qwith_image);
         Intent intent = getIntent();
         String a = intent.getStringExtra("participant");
-       // Log.d("a value", a);
+        Log.d("a value", a);
     }
 
 }
