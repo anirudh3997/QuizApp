@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSignIn(View view) {
-       Intent intent=new Intent(MainActivity.this,SignIn.class);
+       Intent intent=new Intent(MainActivity.this,ShowName.class);
        startActivity(intent);
     }
 }
