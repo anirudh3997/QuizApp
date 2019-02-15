@@ -15,7 +15,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 public class ShowName extends AppCompatActivity {
     private RequestQueue queue;
-    private String url = "http://28663af4.ngrok.io/api/questions";
+    private String url = "http://8eb53f7e.ngrok.io/api/questions";
     String pass="";
     StringBuilder s = new StringBuilder();
 
