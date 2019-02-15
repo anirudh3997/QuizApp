@@ -13,15 +13,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
+
 public class QwithImage extends AppCompatActivity {
 
     JSONArray jsnobject;
     TextView ctr;
     TextView q;
+    String Array;
     int counter = 1,id;
     Button b1,b2,b3,b4;
     int[] ans = new int[10];
-
+    Intent data = getIntent();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +38,18 @@ public class QwithImage extends AppCompatActivity {
         b4 = findViewById(R.id.btnop4);
         ctr = findViewById(R.id.tv_count);
 
+        counter=data.getIntExtra("counter",counter);
+        Log.e("counter val", String.valueOf(counter));
+        ctr.setText(String.valueOf(counter));
 
-        String Array = b.getString("Array");
+
+        Array = b.getString("Array");
+        if(counter>2)
+        {
+            Array=data.getStringExtra("array");
+            Log.e("Array on intent",Array);
+
+        }
         try {
             jsnobject = new JSONArray(Array);
 
@@ -51,10 +63,10 @@ public class QwithImage extends AppCompatActivity {
             b2.setText(op.getString(1));
             b3.setText(op.getString(2));
             b4.setText(op.getString(3));
-            //b1.setText((CharSequence) op.getJSONObject(0));
 
         } catch (JSONException e) {
             e.printStackTrace();
+            Log.e("error", String.valueOf(e));
         }
 
 
@@ -63,16 +75,16 @@ public class QwithImage extends AppCompatActivity {
 
     public void onClick(View view) {
         Intent intent0= new Intent(QwithImage.this,QwithImage2.class);
-        startActivity(intent0);
+
         Log.i("Executed","Working");
 
         id = 0;
         ans[counter-1] = id;
         counter++;
-        //intent0.putExtra("counter",counter);
-        //startActivity(intent0);
-        Log.i("ans", String.valueOf(ans[0]));
-        Log.i("ctr", String.valueOf(counter));
+        intent0.putExtra("counter",counter);
+        intent0.putExtra("ans",ans);
+        intent0.putExtra("array", Array);
+        startActivity(intent0);
     }
 
    /*public void onClick(View view)

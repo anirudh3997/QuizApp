@@ -18,7 +18,8 @@ public class QwithImage2 extends AppCompatActivity {
     JSONArray jsnobject;
     TextView ctr;
     TextView q;
-    int counter = 1,id;
+    String Array;
+    int counter,id;
     Button b1,b2,b3,b4;
     int[] ans = new int[10];
 
@@ -28,14 +29,19 @@ public class QwithImage2 extends AppCompatActivity {
         setContentView(R.layout.activity_qwith_image);
         Log.d("hi2", "working here");
         Intent data = getIntent();
-        Bundle b = getIntent().getExtras();
         q = findViewById(R.id.textView4);
         b1 = findViewById(R.id.btnop1);
         b2 = findViewById(R.id.btnop2);
         b3 = findViewById(R.id.btnop3);
         b4 = findViewById(R.id.btnop4);
 
+        Array = data.getStringExtra("array");
+        counter=data.getIntExtra("counter",counter);
 
+        Log.e("Array vakue in qwi2",Array);
+        ctr=findViewById(R.id.tv_count);
+        ctr.setText(String.valueOf(counter));
+        int a[]= data.getIntArrayExtra("ans");
 
     }
 
@@ -46,9 +52,10 @@ public class QwithImage2 extends AppCompatActivity {
         id = 0;
         ans[counter-1] = id;
         counter++;
-        startActivity(intent0.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-        Log.i("ans", String.valueOf(ans[0]));
-        Log.i("ctr", String.valueOf(counter));
+        intent0.putExtra("counter",counter);
+        intent0.putExtra("ans",ans);
+        intent0.putExtra("array",Array);
+        startActivity(intent0);
     }
 /*
    public void onClick(View view)
