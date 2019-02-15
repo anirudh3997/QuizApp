@@ -24,7 +24,7 @@ public class SignUp extends AppCompatActivity {
     private RequestQueue requestQueue;
 
     EditText name,mail;
-    String URL = "http://28663af4.ngrok.io/api/insertparticipant";
+    String URL = "http://8eb53f7e.ngrok.io/api/insertparticipant";
 
 
     @Override
