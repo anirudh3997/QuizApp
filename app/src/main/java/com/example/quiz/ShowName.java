@@ -12,13 +12,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.Serializable;
-
 public class ShowName extends AppCompatActivity {
     private RequestQueue queue;
     private String url = "http://28663af4.ngrok.io/api/questions";
