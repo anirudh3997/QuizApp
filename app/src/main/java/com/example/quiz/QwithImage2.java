@@ -18,67 +18,49 @@ public class QwithImage2 extends AppCompatActivity {
     JSONArray jsnobject;
     TextView ctr;
     TextView q;
-    int counter = 1,id;
+    int counter,id;
     Button b1,b2,b3,b4;
     int[] ans = new int[10];
+    int count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qwith_image);
-        Log.d("hi2", "working here");
-        Intent data = getIntent();
-        Bundle b = getIntent().getExtras();
+        setContentView(R.layout.activity_qwith_image2);
         q = findViewById(R.id.textView4);
         b1 = findViewById(R.id.btnop1);
         b2 = findViewById(R.id.btnop2);
         b3 = findViewById(R.id.btnop3);
         b4 = findViewById(R.id.btnop4);
-        ctr = findViewById(R.id.tv_count);
-        Intent intent = getIntent();
-        Log.d("hi3", "working here");
+        ctr= findViewById(R.id.tv_count1);
+        Intent data = getIntent();
+        count =data.getIntExtra("counter",0);
+        Log.d("QwithImage2 Oncreate", String.valueOf(count));
 
-        String c = intent.getStringExtra("counter");
-        ctr.setText(c);
-        Log.d("hi4", "Working"+c);
-
-        String Array = b.getString("Array");
-        try {
-            jsnobject = new JSONArray(Array);
-
-            JSONObject jsonObj = jsnobject.getJSONObject(0);
-            q.setText(jsonObj.getString("Qn"));
-
-            JSONArray op = jsonObj.getJSONArray("Options");
-
-            Log.e("option", op.getString(0));
-            b1.setText(op.getString(0));
-            b2.setText(op.getString(1));
-            b3.setText(op.getString(2));
-            b4.setText(op.getString(3));
-            //b1.setText((CharSequence) op.getJSONObject(0));
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
+        //Bundle b = getIntent().getExtras();
+        ctr.setText(String.valueOf(count));
+        Log.d("QwithImage2 Oncreate2", "working here");
 
     }
 
     public void onClick(View view) {
-        Intent intent0= new Intent(this,QwithImage.class);
-        Log.i("Executed","Working");
+
+        //startActivity(intent0);
 
         id = 0;
         ans[counter-1] = id;
-        counter++;
-        startActivity(intent0.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-        Log.i("ans", String.valueOf(ans[0]));
-        Log.i("ctr", String.valueOf(counter));
-    }
+        Log.i("QwithImage2 onClick",String.valueOf(counter));
 
-   /*public void onClick(View view)
+        counter++;
+        Intent intent= new Intent(QwithImage2.this,QwithImage.class);
+        intent.putExtra("counter",counter);
+        Log.i("QwithImage2 onClick2", String.valueOf(counter));
+        startActivity(intent);
+        Log.i("QwithImage2 ans", String.valueOf(ans[0]));
+        Log.i("QwithImage2 ans", String.valueOf(counter));
+    }
+/*
+   public void onClick(View view)
     {
         switch (view.getId())
         {

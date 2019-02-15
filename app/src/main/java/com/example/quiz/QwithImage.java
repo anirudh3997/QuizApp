@@ -21,13 +21,13 @@ public class QwithImage extends AppCompatActivity {
     int counter = 1,id;
     Button b1,b2,b3,b4;
     int[] ans = new int[10];
+    int count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qwith_image);
-        Log.d("hi", "working here");
-        Intent data = getIntent();
+        Log.d("QwithImage Oncreate", "working here");
         Bundle b = getIntent().getExtras();
         q = findViewById(R.id.textView4);
         b1 = findViewById(R.id.btnop1);
@@ -35,9 +35,9 @@ public class QwithImage extends AppCompatActivity {
         b3 = findViewById(R.id.btnop3);
         b4 = findViewById(R.id.btnop4);
         ctr = findViewById(R.id.tv_count);
-
-
+        ctr.setText(String.valueOf(counter));
         String Array = b.getString("Array");
+
         try {
             jsnobject = new JSONArray(Array);
 
@@ -61,18 +61,66 @@ public class QwithImage extends AppCompatActivity {
 
     }
 
+    //@Override
+   /* protected void onResume() {
+        super.onResume();
+        Log.d("QwithImage onResume", "working here");
+        Bundle b = getIntent().getExtras();
+        q = findViewById(R.id.textView4);
+        b1 = findViewById(R.id.btnop1);
+        b2 = findViewById(R.id.btnop2);
+        b3 = findViewById(R.id.btnop3);
+        b4 = findViewById(R.id.btnop4);
+        ctr = findViewById(R.id.tv_count);
+        ctr.setText(String.valueOf(counter));
+        if (counter > 1)
+        {
+            Intent data = getIntent();
+            count =data.getIntExtra("counter",0);
+            Log.d("QwithImage onResume2", String.valueOf(count));
+
+            //Bundle b = getIntent().getExtras();
+            ctr.setText(String.valueOf(count));
+            Log.d("QwithImage onResume3", "working here");
+        }
+
+
+        String Array = b.getString("Array");
+        try {
+            jsnobject = new JSONArray(Array);
+
+            JSONObject jsonObj = jsnobject.getJSONObject(0);
+            q.setText(jsonObj.getString("Qn"));
+
+            JSONArray op = jsonObj.getJSONArray("Options");
+
+            Log.e("option", op.getString(0));
+            b1.setText(op.getString(0));
+            b2.setText(op.getString(1));
+            b3.setText(op.getString(2));
+            b4.setText(op.getString(3));
+            //b1.setText((CharSequence) op.getJSONObject(0));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    } */
+
     public void onClick(View view) {
-        Intent intent0= new Intent(QwithImage.this,QwithImage2.class);
 
         Log.i("Executed","Working");
 
         id = 0;
         ans[counter-1] = id;
         counter++;
-        intent0.putExtra("counter",counter);
+        Intent intent0= new Intent(QwithImage.this,QwithImage2.class);
+        intent0.putExtra("QwithImage onClick",counter);
+        Log.i("Executed", String.valueOf(counter));
+
         startActivity(intent0);
-        Log.i("ans", String.valueOf(ans[0]));
-        Log.i("ctr", String.valueOf(counter));
+        Log.i("QwithImage ans", String.valueOf(ans[0]));
+        Log.i("QwithImage ctr", String.valueOf(counter));
     }
 
    /*public void onClick(View view)
