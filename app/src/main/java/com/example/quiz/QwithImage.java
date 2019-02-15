@@ -155,6 +155,7 @@ public class QwithImage extends AppCompatActivity {
             }
         }
         else {
+
             Intent intent1= new Intent(QwithImage.this,DisplayScore.class);
             startActivity(intent1);
 
