@@ -34,6 +34,8 @@ public class QwithImage extends AppCompatActivity {
         b2 = findViewById(R.id.btnop2);
         b3 = findViewById(R.id.btnop3);
         b4 = findViewById(R.id.btnop4);
+        ctr = findViewById(R.id.tv_count);
+
 
         String Array = b.getString("Array");
         try {
@@ -60,13 +62,15 @@ public class QwithImage extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        Intent intent0= new Intent(this,QwithImage.class);
+        Intent intent0= new Intent(QwithImage.this,QwithImage2.class);
+
         Log.i("Executed","Working");
 
         id = 0;
         ans[counter-1] = id;
         counter++;
-        startActivity(intent0.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+        intent0.putExtra("counter",counter);
+        startActivity(intent0);
         Log.i("ans", String.valueOf(ans[0]));
         Log.i("ctr", String.valueOf(counter));
     }
