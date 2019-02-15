@@ -184,7 +184,7 @@ public class QwithImage2 extends AppCompatActivity {
             }){
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
-                    Log.d("push functino",String.valueOf(push));
+                    Log.d("push function",String.valueOf(push));
                     Map<String, String> params = new HashMap<String, String>();
                     params.put("QnID", String.valueOf(push));
                     Log.e("qwe",params.toString());
