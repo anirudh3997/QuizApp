@@ -34,33 +34,6 @@ public class QwithImage2 extends AppCompatActivity {
         b2 = findViewById(R.id.btnop2);
         b3 = findViewById(R.id.btnop3);
         b4 = findViewById(R.id.btnop4);
-        ctr = findViewById(R.id.tv_count);
-        Intent intent = getIntent();
-        Log.d("hi3", "working here");
-
-        String c = intent.getStringExtra("counter");
-        ctr.setText(c);
-        Log.d("hi4", c);
-
-        String Array = b.getString("Array");
-        try {
-            jsnobject = new JSONArray(Array);
-
-            JSONObject jsonObj = jsnobject.getJSONObject(0);
-            q.setText(jsonObj.getString("Qn"));
-
-            JSONArray op = jsonObj.getJSONArray("Options");
-
-            Log.e("option", op.getString(0));
-            b1.setText(op.getString(0));
-            b2.setText(op.getString(1));
-            b3.setText(op.getString(2));
-            b4.setText(op.getString(3));
-            //b1.setText((CharSequence) op.getJSONObject(0));
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
 
 
@@ -77,8 +50,8 @@ public class QwithImage2 extends AppCompatActivity {
         Log.i("ans", String.valueOf(ans[0]));
         Log.i("ctr", String.valueOf(counter));
     }
-
-   /*public void onClick(View view)
+/*
+   public void onClick(View view)
     {
         switch (view.getId())
         {

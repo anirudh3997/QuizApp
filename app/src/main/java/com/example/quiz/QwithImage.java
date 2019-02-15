@@ -63,14 +63,14 @@ public class QwithImage extends AppCompatActivity {
 
     public void onClick(View view) {
         Intent intent0= new Intent(QwithImage.this,QwithImage2.class);
-
+        startActivity(intent0);
         Log.i("Executed","Working");
 
         id = 0;
         ans[counter-1] = id;
         counter++;
-        intent0.putExtra("counter",counter);
-        startActivity(intent0);
+        //intent0.putExtra("counter",counter);
+        //startActivity(intent0);
         Log.i("ans", String.valueOf(ans[0]));
         Log.i("ctr", String.valueOf(counter));
     }
