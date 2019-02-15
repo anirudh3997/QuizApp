@@ -48,7 +48,7 @@
         app:layout_constraintHorizontal_bias="0.975"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        android:onClick="onClick"/>
 
     <Button
         android:id="@+id/btnop3"
@@ -64,7 +64,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        android:onClick="onClick"/>
 
     <Button
         android:id="@+id/btnop4"
@@ -80,7 +80,7 @@
         app:layout_constraintHorizontal_bias="0.975"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        android:onClick="onClick"/>
 
     <ImageView
         android:id="@+id/imageView"

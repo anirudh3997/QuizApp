@@ -13,21 +13,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
+
 public class QwithImage extends AppCompatActivity {
 
     JSONArray jsnobject;
     TextView ctr;
     TextView q;
+    String Array;
     int counter = 1,id;
     Button b1,b2,b3,b4;
     int[] ans = new int[10];
-    int count;
-
+    Intent data = getIntent();
+    Intent intent0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qwith_image);
-        Log.d("QwithImage Oncreate", "working here");
+        Log.d("hi", "working here");
+        Intent data = getIntent();
         Bundle b = getIntent().getExtras();
         q = findViewById(R.id.textView4);
         b1 = findViewById(R.id.btnop1);
@@ -35,13 +38,23 @@ public class QwithImage extends AppCompatActivity {
         b3 = findViewById(R.id.btnop3);
         b4 = findViewById(R.id.btnop4);
         ctr = findViewById(R.id.tv_count);
-        ctr.setText(String.valueOf(counter));
-        String Array = b.getString("Array");
 
+        counter=data.getIntExtra("counter",counter);
+        Log.e("counter val", String.valueOf(counter));
+        ctr.setText(String.valueOf(counter));
+
+
+        Array = b.getString("Array");
+        if(counter>1)
+        {
+            Array=data.getStringExtra("array");
+            Log.e("Array on intent",Array);
+
+        }
         try {
             jsnobject = new JSONArray(Array);
 
-            JSONObject jsonObj = jsnobject.getJSONObject(0);
+            JSONObject jsonObj = jsnobject.getJSONObject(counter-1);
             q.setText(jsonObj.getString("Qn"));
 
             JSONArray op = jsonObj.getJSONArray("Options");
@@ -51,113 +64,103 @@ public class QwithImage extends AppCompatActivity {
             b2.setText(op.getString(1));
             b3.setText(op.getString(2));
             b4.setText(op.getString(3));
-            //b1.setText((CharSequence) op.getJSONObject(0));
 
         } catch (JSONException e) {
             e.printStackTrace();
+            Log.e("error", String.valueOf(e));
         }
 
 
 
     }
 
-    //@Override
-   /* protected void onResume() {
-        super.onResume();
-        Log.d("QwithImage onResume", "working here");
-        Bundle b = getIntent().getExtras();
-        q = findViewById(R.id.textView4);
-        b1 = findViewById(R.id.btnop1);
-        b2 = findViewById(R.id.btnop2);
-        b3 = findViewById(R.id.btnop3);
-        b4 = findViewById(R.id.btnop4);
-        ctr = findViewById(R.id.tv_count);
-        ctr.setText(String.valueOf(counter));
-        if (counter > 1)
+   /* public void onClick(View view) {
+        if (counter<10)
         {
-            Intent data = getIntent();
-            count =data.getIntExtra("counter",0);
-            Log.d("QwithImage onResume2", String.valueOf(count));
+            Intent intent0= new Intent(QwithImage.this,QwithImage2.class);
 
-            //Bundle b = getIntent().getExtras();
-            ctr.setText(String.valueOf(count));
-            Log.d("QwithImage onResume3", "working here");
+            Log.i("Executed","Working");
+
+            id = 0;
+            ans[counter-1] = id;
+            counter++;
+            intent0.putExtra("counter",counter);
+            intent0.putExtra("ans",ans);
+            intent0.putExtra("array", Array);
+            startActivity(intent0);
         }
+        else {
+            Intent intent1= new Intent(QwithImage.this,DisplayScore.class);
+            startActivity(intent1);
 
-
-        String Array = b.getString("Array");
-        try {
-            jsnobject = new JSONArray(Array);
-
-            JSONObject jsonObj = jsnobject.getJSONObject(0);
-            q.setText(jsonObj.getString("Qn"));
-
-            JSONArray op = jsonObj.getJSONArray("Options");
-
-            Log.e("option", op.getString(0));
-            b1.setText(op.getString(0));
-            b2.setText(op.getString(1));
-            b3.setText(op.getString(2));
-            b4.setText(op.getString(3));
-            //b1.setText((CharSequence) op.getJSONObject(0));
-
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
 
     } */
 
     public void onClick(View view) {
+        if (counter < 10) {
+            switch (view.getId()) {
+                case R.id.btnop1:
+                    intent0 = new Intent(this,QwithImage2.class);
+                    Log.i("Button1","Working");
 
-        Log.i("Executed","Working");
+                    id = 0;
+                    ans[counter-1] = id;
+                    counter++;
+                    intent0.putExtra("counter",counter);
+                    intent0.putExtra("ans",ans);
+                    intent0.putExtra("array",Array);
+                    startActivity(intent0);
+                    break;
+                case R.id.btnop2:
+                    intent0= new Intent(this,QwithImage2.class);
+                    Log.i("Button2","Working");
 
-        id = 0;
-        ans[counter-1] = id;
-        counter++;
-        Intent intent0= new Intent(QwithImage.this,QwithImage2.class);
-        intent0.putExtra("QwithImage onClick",counter);
-        Log.i("Executed", String.valueOf(counter));
+                    id = 1;
+                    ans[counter-1] = id;
+                    counter++;
+                    intent0.putExtra("counter",counter);
+                    intent0.putExtra("ans",ans);
+                    intent0.putExtra("array",Array);
+                    startActivity(intent0);
+                    break;
 
-        startActivity(intent0);
-        Log.i("QwithImage ans", String.valueOf(ans[0]));
-        Log.i("QwithImage ctr", String.valueOf(counter));
-    }
+                case R.id.btnop3:
+                    intent0= new Intent(this,QwithImage2.class);
+                    Log.i("Button3","Working");
 
-   /*public void onClick(View view)
-    {
-        switch (view.getId())
-        {
-            case R.id.btnop1: Intent intent0= new Intent(this,QwithImage.class);
+                    id = 2;
+                    ans[counter-1] = id;
+                    counter++;
+                    intent0.putExtra("counter",counter);
+                    intent0.putExtra("ans",ans);
+                    intent0.putExtra("array",Array);
+                    startActivity(intent0);
+                    break;
 
-                                id = 0;
-                                ans[counter-1] = id;
-                                counter++;
-                                startActivity(intent0.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                                break;
-            case R.id.btnop2: Intent intent1 = new Intent(QwithImage.this,QwithImage.class);
-                 id = 1;
-                ans[counter-1] = id;
-                counter++;
-                startActivity(intent1);
-                break;
+                case R.id.btnop4:
+                    intent0= new Intent(this,QwithImage2.class);
+                    Log.i("Button4","Working");
 
-            case R.id.btnop3: Intent intent2 = new Intent(QwithImage.this,QwithImage.class);
-                 id = 2;
-                ans[counter-1] = id;
-                counter++;
-                startActivity(intent2);
-                break;
+                    id = 3;
+                    ans[counter-1] = id;
+                    counter++;
+                    intent0.putExtra("counter",counter);
+                    intent0.putExtra("ans",ans);
+                    intent0.putExtra("array",Array);
+                    startActivity(intent0);
+                    break;
 
-            case R.id.btnop4: Intent intent3 = new Intent(QwithImage.this,QwithImage.class);
-                 id = 3;
-                ans[counter-1] = id;
-                counter++;
-                startActivity(intent3);
-                break;
 
+            }
+        }
+        else {
+            Intent intent1= new Intent(QwithImage.this,DisplayScore.class);
+            startActivity(intent1);
 
         }
-    } */
+
+    }
 
 
 }
