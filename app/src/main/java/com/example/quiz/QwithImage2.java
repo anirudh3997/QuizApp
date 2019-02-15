@@ -40,7 +40,7 @@ public class QwithImage2 extends AppCompatActivity {
 
         String c = intent.getStringExtra("counter");
         ctr.setText(c);
-        Log.d("hi4", c);
+        Log.d("hi4", "Working"+c);
 
         String Array = b.getString("Array");
         try {
